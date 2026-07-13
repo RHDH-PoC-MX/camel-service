@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+    title: Products API
+    version: 1.0.0
+    description: This is a simple API descriptor.
+paths:
+    /api/products:
+        get:
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/product"
+                            examples:
+                                All products:
+                                    value:
+                                        - id: 1
+                                          name: Premium Cloud Subscription
+                                          status: active
+                                        - id: 2
+                                          name: AI Integration Gateway License
+                                          status: pending
+                    description: Product list. Full list with no filters
+            operationId: getProducts
+        post:
+            requestBody:
+                description: Product to add
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/product"
+                        examples:
+                            Simpe product:
+                                value:
+                                    id: 2
+                                    name: AI Integration Gateway License
+                                    status: pending
+                required: true
+            responses:
+                "200":
+                    description: Product added successfully
+            operationId: addProducts
+            summary: Add new products
+components:
+    schemas:
+        product:
+            title: Root Type for product
+            description: Product
+            type: object
+            properties:
+                id:
+                    format: int32
+                    description: Internal product Id
+                    type: integer
+                name:
+                    description: Product name, or short description
+                    type: string
+                status:
+                    description: Whether the product is available for purchase or not
+                    type: string
+            example:
+                id: 1
+                name: Premium Cloud Subscription
+                status: active
