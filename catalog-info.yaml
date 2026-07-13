@@ -22,6 +22,9 @@ metadata:
     - url: https://devspaces.apps.cluster-4tb8t.4tb8t.sandbox1971.opentlc.com/#https://github.com/RHDH-PoC-MX/camel-service.git?che-editor=che-incubator/che-idea/latest
       title: OpenShift Dev Spaces (JetBrains IntelliJ)
       icon: web
+    - url: http://apicurio-registry-ui.apps.cluster-62rsw.dynamic2.redhatworkshops.io/explore/products/camel-service
+      title: Service registry URL for the component's API
+      icon: web
 spec:
   type: service
   lifecycle: production
